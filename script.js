@@ -1,44 +1,67 @@
-// Wait for the DOM to be fully loaded before running the script
 document.addEventListener("DOMContentLoaded", function() {
 
-    // Get all navigation buttons and content pages
-    const navButtons = document.querySelectorAll(".nav-item");
-    const contentPages = document.querySelectorAll(".content-page");
+    // Get the main screens
+    const welcomeScreen = document.getElementById("welcomeScreen");
+    const mainApp = document.getElementById("mainApp");
+
+    // Get the trigger buttons
+    const getStartedBtn = document.getElementById("getStartedBtn");
+    const loginLink = document.getElementById("loginLink");
     
-    // --- 1. Navigation Logic ---
+    // --- 1. Screen Toggling Logic ---
+    function showMainApp() {
+        if (welcomeScreen) {
+            welcomeScreen.style.display = "none";
+        }
+        if (mainApp) {
+            mainApp.style.display = "flex"; // Show the app container
+        }
+    }
+
+    // Add listeners to the welcome screen buttons
+    if (getStartedBtn) {
+        getStartedBtn.addEventListener("click", showMainApp);
+    }
+    if (loginLink) {
+        loginLink.addEventListener("click", (e) => {
+            e.preventDefault(); // Stop the link from navigating
+            showMainApp();
+            // In a real app, this might go to a different login page
+        });
+    }
+
+    // --- 2. App Navigation Logic (Scoped to mainApp) ---
+    const navButtons = mainApp.querySelectorAll(".nav-item");
+    const contentPages = mainApp.querySelectorAll(".content-page");
+    
     navButtons.forEach(button => {
         button.addEventListener("click", () => {
             
-            // Get the target page ID from the button's 'data-page' attribute
             const targetPageId = button.dataset.page;
             
-            // Remove 'active' class from all buttons and pages
             navButtons.forEach(btn => btn.classList.remove("active"));
             contentPages.forEach(page => page.classList.remove("active"));
             
-            // Add 'active' class to the clicked button
             button.classList.add("active");
             
-            // Show the corresponding content page
-            document.getElementById(targetPageId).classList.add("active");
+            // Find the page inside the mainApp
+            const targetPage = mainApp.querySelector("#" + targetPageId);
+            if (targetPage) {
+                targetPage.classList.add("active");
+            }
         });
     });
 
-    // --- 2. Simulated Report Logic ---
-    const getReadingBtn = document.getElementById("getReadingBtn");
+    // --- 3. Simulated Report Logic (Scoped to mainApp) ---
+    const getReadingBtn = mainApp.querySelector("#getReadingBtn");
     
-    getReadingBtn.addEventListener("click", () => {
-        // This is a simple simulation.
-        // In a real app, this would trigger a sensor and wait for data.
-        
-        // We will simulate this by switching to the 'Reports' page.
-        
-        // Manually trigger a click on the "Reports" nav button.
-        // We find it by its 'data-page' attribute.
-        const reportsButton = document.querySelector('.nav-item[data-page="page-reports"]');
-        if (reportsButton) {
-            reportsButton.click();
-        }
-    });
+    if (getReadingBtn) {
+        getReadingBtn.addEventListener("click", () => {
+            const reportsButton = mainApp.querySelector('.nav-item[data-page="page-reports"]');
+            if (reportsButton) {
+                reportsButton.click();
+            }
+        });
+    }
 
-});
+}); // End of DOMContentLoaded
