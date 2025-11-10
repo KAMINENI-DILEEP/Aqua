@@ -9,7 +9,44 @@
 </head>
 <body>
 
-    <div class="app-container">
+    <div class="welcome-container" id="welcomeScreen">
+        <div class="welcome-content">
+            <div class="welcome-logo">
+                <i class="fa-solid fa-droplet"></i>
+            </div>
+
+            <h2>Welcome to Aqua Vision AI</h2>
+            <p class="welcome-subtitle">Your intelligent partner for real-time water quality analysis. We leverage the power of AI to give you detailed insights from simulated sensor data.</p>
+
+            <div class="feature-card">
+                <i class="fa-solid fa-wand-magic-sparkles"></i>
+                <div>
+                    <h3>AI-Powered Analysis</h3>
+                    <p>Get instant, detailed reports on water quality parameters, from pH levels to potential contaminants.</p>
+                </div>
+            </div>
+            <div class="feature-card">
+                <i class="fa-solid fa-chart-line"></i>
+                <div>
+                    <h3>Clear & Actionable Data</h3>
+                    <p>Understand your water quality with an easy-to-read summary, key metrics, and practical recommendations.</p>
+                </div>
+            </div>
+            <div class="feature-card">
+                <i class="fa-solid fa-shield-heart"></i>
+                <div>
+                    <h3>Promoting Safer Water</h3>
+                    <p>Our mission is to make water quality information accessible, helping to ensure safer water for everyone.</p>
+                </div>
+            </div>
+
+            <button class="btn-primary" id="getStartedBtn">Get Started</button>
+            <p class="login-link">Already have an account? <a href="#" id="loginLink">Log In</a></p>
+        </div>
+    </div>
+
+    <div class="app-container" id="mainApp" style="display: none;">
+        
         <header class="app-header">
             <div class="logo">
                 <i class="fa-solid fa-droplet"></i>
@@ -48,7 +85,7 @@
                     <div class="metric-item"><span>Dissolved Oxygen</span><strong>5.5 mg/L</strong></div>
                     <div class="metric-item"><span>Conductivity</span><strong>350 µS/cm</strong></div>
                 </div>
-                </div>
+            </div>
 
             <div class="content-page" id="page-map">
                 <h2>Water Health Map</h2>
@@ -64,7 +101,6 @@
 
             <div class="content-page" id="page-community">
                 <h2>Community Hub</h2>
-                <p>Share and view water quality observations in your area.</p>
                 <div class="card">
                     <h3>Report a Water Issue</h3>
                     <textarea placeholder="Describe what you see (e.g., strange color, smell, floating debris)..."></textarea>
@@ -74,10 +110,6 @@
                     <h3>Recent Community Reports</h3>
                     <div class="report-item">
                         <p>Unusual algae growth observed near the old bridge.</p>
-                        <small>1 years ago</small>
-                    </div>
-                    <div class="report-item">
-                        <p>Water has a strange smell this morning.</p>
                         <small>1 years ago</small>
                     </div>
                 </div>
@@ -94,7 +126,7 @@
                         </div>
                     </div>
                 </div>
-                </div>
+            </div>
 
             <div class="content-page" id="page-info">
                 <h2>About Aqua Vision AI</h2>
