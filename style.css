@@ -1,11 +1,11 @@
 /* --- Global Styles & Variables --- */
 :root {
-    --bg-dark-blue: #0d2a40; /* Darkest background */
-    --bg-medium-blue: #113a56; /* Lighter card/header background */
-    --bg-nav: #0c314a; /* Nav bar background */
-    --accent-blue: #3b82f6; /* Buttons and active icons */
-    --text-primary: #ffffff; /* Main text */
-    --text-secondary: #b0c4de; /* Lighter text */
+    --bg-dark-blue: #0d2a40;
+    --bg-medium-blue: #113a56;
+    --bg-nav: #0c314a;
+    --accent-blue: #3b82f6;
+    --text-primary: #ffffff;
+    --text-secondary: #b0c4de;
     --border-color: #2a5270;
     --warning-bg: #4a3a20;
     --warning-border: #facc15;
@@ -27,19 +27,129 @@ body {
     justify-content: center;
     align-items: center;
     min-height: 100vh;
+    padding: 20px 0; /* Allows for scrolling on small viewports */
 }
 
-.app-container {
-    width: 390px; /* Simulating a mobile phone width */
+/* --- Welcome Screen Styles --- */
+.welcome-container {
+    width: 390px;
+    max-width: 100%;
     height: 844px; /* Simulating a mobile phone height */
+    padding: 40px 20px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    text-align: center;
+    border-radius: 20px;
+    border: 4px solid #000;
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.3);
+    overflow-y: auto;
+    background-color: var(--bg-dark-blue);
+}
+
+.welcome-content {
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.welcome-logo {
+    width: 80px;
+    height: 80px;
+    background-color: var(--bg-medium-blue);
+    border-radius: 50%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    border: 4px solid var(--accent-blue);
+    margin-bottom: 20px;
+}
+
+.welcome-logo i {
+    font-size: 2.5rem;
+    color: var(--accent-blue);
+}
+
+.welcome-container h2 {
+    font-size: 1.8rem;
+    margin-bottom: 12px;
+}
+
+.welcome-subtitle {
+    color: var(--text-secondary);
+    font-size: 1rem;
+    margin-bottom: 30px;
+    max-width: 340px;
+}
+
+.feature-card {
+    background-color: var(--bg-medium-blue);
+    border: 1px solid var(--border-color);
+    border-radius: 16px;
+    padding: 20px;
+    width: 100%;
+    margin-bottom: 16px;
+    text-align: left;
+    display: flex;
+    align-items: center;
+    gap: 16px;
+}
+
+.feature-card i {
+    font-size: 1.5rem;
+    color: var(--accent-blue);
+    width: 30px;
+    text-align: center;
+    flex-shrink: 0;
+}
+
+.feature-card div {
+    display: flex;
+    flex-direction: column;
+}
+
+.feature-card h3 {
+    margin-bottom: 4px;
+}
+
+.feature-card p {
+    font-size: 0.9rem;
+    color: var(--text-secondary);
+    margin: 0;
+}
+
+.welcome-container .btn-primary {
+    margin-top: 20px;
+    width: 100%;
+}
+
+.login-link {
+    margin-top: 20px;
+    font-size: 0.9rem;
+    color: var(--text-secondary);
+}
+
+.login-link a {
+    color: var(--accent-blue);
+    text-decoration: none;
+    font-weight: 600;
+}
+
+
+/* --- Main App Container --- */
+.app-container {
+    width: 390px;
+    height: 844px;
     background-color: var(--bg-dark-blue);
     border-radius: 20px;
     border: 4px solid #000;
     box-shadow: 0 10px 30px rgba(0, 0, 0, 0.3);
-    display: flex;
+    display: flex; /* Changed from default block */
     flex-direction: column;
     overflow: hidden;
     position: relative;
+    /* 'display: none' is set inline in the HTML */
 }
 
 /* --- Header --- */
@@ -50,6 +160,7 @@ body {
     padding: 16px;
     background-color: var(--bg-medium-blue);
     border-bottom: 1px solid var(--border-color);
+    flex-shrink: 0; /* Prevent header from shrinking */
 }
 
 .app-header .logo {
@@ -85,11 +196,11 @@ body {
 }
 
 .content-page {
-    display: none; /* Hide all pages by default */
+    display: none;
 }
 
 .content-page.active {
-    display: block; /* Show only the active page */
+    display: block;
 }
 
 /* --- Navigation --- */
@@ -99,13 +210,14 @@ body {
     padding: 12px 0;
     background-color: var(--bg-nav);
     border-top: 1px solid var(--border-color);
+    flex-shrink: 0; /* Prevent nav from shrinking */
 }
 
 .nav-item {
     background: none;
     border: none;
     color: var(--text-secondary);
-    font-size: 1.5rem; /* Icon size */
+    font-size: 1.5rem;
     cursor: pointer;
     padding: 8px;
     border-radius: 12px;
@@ -117,11 +229,7 @@ body {
     color: var(--text-primary);
 }
 
-.nav-item:not(.active):hover {
-    color: var(--text-primary);
-}
-
-/* --- Reusable Components (from your designs) --- */
+/* --- Reusable Components --- */
 .card {
     background-color: var(--bg-medium-blue);
     border-radius: 16px;
@@ -130,14 +238,8 @@ body {
     border: 1px solid var(--border-color);
     text-align: center;
 }
-
-.card h2 {
-    margin-bottom: 8px;
-}
-.card p {
-    color: var(--text-secondary);
-    margin-bottom: 20px;
-}
+.card h2 { margin-bottom: 8px; }
+.card p { color: var(--text-secondary); margin-bottom: 20px; }
 
 .icon-large {
     font-size: 3rem;
@@ -182,17 +284,13 @@ textarea {
     border: 1px solid var(--caution-border);
     color: var(--caution-border);
 }
-.report-card.caution i {
-    font-size: 1.5rem;
-    margin-top: 4px;
-}
+.report-card.caution i { font-size: 1.5rem; margin-top: 4px; }
 
 .metrics-grid {
     display: grid;
     grid-template-columns: 1fr 1fr;
     gap: 12px;
 }
-
 .metric-item {
     background-color: var(--bg-medium-blue);
     border-radius: 12px;
@@ -205,9 +303,7 @@ textarea {
     color: var(--text-secondary);
     margin-bottom: 4px;
 }
-.metric-item strong {
-    font-size: 1.5rem;
-}
+.metric-item strong { font-size: 1.5rem; }
 
 /* --- Map Page --- */
 .map-placeholder {
@@ -222,19 +318,26 @@ textarea {
     align-items: center;
     color: var(--text-secondary);
 }
-.legend {
-    margin-top: 20px;
-    font-size: 0.8rem;
-    display: flex;
-    gap: 16px;
-}
-.legend .dot {
-    display: inline-block;
-    width: 10px;
-    height: 10px;
-    border-radius: 50%;
-    margin-right: 4px;
-}
+.legend { margin-top: 20px; font-size: 0.8rem; display: flex; gap: 16px; }
+.legend .dot { display: inline-block; width: 10px; height: 10px; border-radius: 50%; margin-right: 4px; }
 .dot.blue { background-color: #3b82f6; }
 .dot.green { background-color: #22c55e; }
 .dot.yellow { background-color: #eab308; }
+
+/* ... (any other specific styles) ... */
+.report-item {
+    padding: 12px 0;
+    border-bottom: 1px solid var(--border-color);
+    text-align: left;
+}
+.report-item:last-child { border-bottom: none; }
+.report-item p { margin-bottom: 4px; color: var(--text-primary); }
+.report-item small { color: var(--text-secondary); }
+
+.method-item {
+    display: flex;
+    gap: 16px;
+    text-align: left;
+    padding: 12px 0;
+}
+.method-item i { font-size: 1.5rem; color: var(--accent-blue); }
