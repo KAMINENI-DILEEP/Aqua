@@ -1,0 +1,130 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Aqua Vision AI</title>
+    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+</head>
+<body>
+
+    <div class="app-container">
+        <header class="app-header">
+            <div class="logo">
+                <i class="fa-solid fa-droplet"></i>
+                <h1>Aqua Vision AI</h1>
+            </div>
+            <button class="connect-btn">
+                <i class="fa-solid fa-bluetooth-b"></i>
+                Connect
+            </button>
+        </header>
+
+        <main class="app-content">
+            
+            <div class="content-page active" id="page-analyze">
+                <div class="card">
+                    <i class="fa-solid fa-temperature-half icon-large"></i>
+                    <h2>Ready to Analyze</h2>
+                    <p>Click the button to get a simulated water reading.</p>
+                    <button class="btn-primary" id="getReadingBtn">Get Water Reading</button>
+                </div>
+            </div>
+
+            <div class="content-page" id="page-reports">
+                <h2>Water Analysis</h2>
+                <div class="report-card caution">
+                    <i class="fa-solid fa-triangle-exclamation"></i>
+                    <div>
+                        <strong>Water Quality: Caution Advised</strong>
+                        <p>This water is not suitable for direct human consumption without extensive treatment.</p>
+                    </div>
+                </div>
+                
+                <div class="metrics-grid">
+                    <div class="metric-item"><span>pH Level</span><strong>6.80</strong></div>
+                    <div class="metric-item"><span>Turbidity</span><strong>8.5 NTU</strong></div>
+                    <div class="metric-item"><span>Dissolved Oxygen</span><strong>5.5 mg/L</strong></div>
+                    <div class="metric-item"><span>Conductivity</span><strong>350 µS/cm</strong></div>
+                </div>
+                </div>
+
+            <div class="content-page" id="page-map">
+                <h2>Water Health Map</h2>
+                <div class="map-placeholder">
+                    <p>Map would be loaded here.</p>
+                    <div class="legend">
+                        <span><span class="dot blue"></span> Your Location</span>
+                        <span><span class="dot green"></span> Analysis</span>
+                        <span><span class="dot yellow"></span> Report</span>
+                    </div>
+                </div>
+            </div>
+
+            <div class="content-page" id="page-community">
+                <h2>Community Hub</h2>
+                <p>Share and view water quality observations in your area.</p>
+                <div class="card">
+                    <h3>Report a Water Issue</h3>
+                    <textarea placeholder="Describe what you see (e.g., strange color, smell, floating debris)..."></textarea>
+                    <button class="btn-primary">Submit Report</button>
+                </div>
+                <div class="card">
+                    <h3>Recent Community Reports</h3>
+                    <div class="report-item">
+                        <p>Unusual algae growth observed near the old bridge.</p>
+                        <small>1 years ago</small>
+                    </div>
+                    <div class="report-item">
+                        <p>Water has a strange smell this morning.</p>
+                        <small>1 years ago</small>
+                    </div>
+                </div>
+            </div>
+
+            <div class="content-page" id="page-safety">
+                <h2>Simple Purification Methods</h2>
+                <div class="card">
+                    <div class="method-item">
+                        <i class="fa-solid fa-house"></i>
+                        <div>
+                            <strong>Boiling</strong>
+                            <p>Effective Against: Bacteria, viruses, and protozoa.</p>
+                        </div>
+                    </div>
+                </div>
+                </div>
+
+            <div class="content-page" id="page-info">
+                <h2>About Aqua Vision AI</h2>
+                <p>Welcome, this app is a demo starter kit.</p>
+            </div>
+
+        </main>
+
+        <nav class="app-nav">
+            <button class="nav-item active" data-page="page-analyze">
+                <i class="fa-solid fa-temperature-half"></i>
+            </button>
+            <button class="nav-item" data-page="page-reports">
+                <i class="fa-solid fa-file-lines"></i>
+            </button>
+            <button class="nav-item" data-page="page-map">
+                <i class="fa-solid fa-map-location-dot"></i>
+            </button>
+            <button class="nav-item" data-page="page-community">
+                <i class="fa-solid fa-users"></i>
+            </button>
+            <button class="nav-item" data-page="page-safety">
+                <i class="fa-solid fa-shield-halved"></i>
+            </button>
+            <button class="nav-item" data-page="page-info">
+                <i class="fa-solid fa-circle-info"></i>
+            </button>
+        </nav>
+    </div>
+
+    <script src="script.js"></script>
+</body>
+</html>

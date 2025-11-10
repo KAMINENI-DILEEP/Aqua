@@ -1,0 +1,240 @@
+/* --- Global Styles & Variables --- */
+:root {
+    --bg-dark-blue: #0d2a40; /* Darkest background */
+    --bg-medium-blue: #113a56; /* Lighter card/header background */
+    --bg-nav: #0c314a; /* Nav bar background */
+    --accent-blue: #3b82f6; /* Buttons and active icons */
+    --text-primary: #ffffff; /* Main text */
+    --text-secondary: #b0c4de; /* Lighter text */
+    --border-color: #2a5270;
+    --warning-bg: #4a3a20;
+    --warning-border: #facc15;
+    --caution-bg: #4a2a20;
+    --caution-border: #f06a6a;
+}
+
+* {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+    font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
+}
+
+body {
+    background-color: var(--bg-dark-blue);
+    color: var(--text-primary);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    min-height: 100vh;
+}
+
+.app-container {
+    width: 390px; /* Simulating a mobile phone width */
+    height: 844px; /* Simulating a mobile phone height */
+    background-color: var(--bg-dark-blue);
+    border-radius: 20px;
+    border: 4px solid #000;
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.3);
+    display: flex;
+    flex-direction: column;
+    overflow: hidden;
+    position: relative;
+}
+
+/* --- Header --- */
+.app-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 16px;
+    background-color: var(--bg-medium-blue);
+    border-bottom: 1px solid var(--border-color);
+}
+
+.app-header .logo {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    color: var(--accent-blue);
+}
+
+.app-header .logo h1 {
+    font-size: 1.2rem;
+    color: var(--text-primary);
+}
+
+.connect-btn {
+    background-color: var(--accent-blue);
+    color: var(--text-primary);
+    border: none;
+    border-radius: 20px;
+    padding: 8px 12px;
+    font-weight: 600;
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    gap: 6px;
+}
+
+/* --- Main Content --- */
+.app-content {
+    flex: 1;
+    overflow-y: auto;
+    padding: 20px;
+}
+
+.content-page {
+    display: none; /* Hide all pages by default */
+}
+
+.content-page.active {
+    display: block; /* Show only the active page */
+}
+
+/* --- Navigation --- */
+.app-nav {
+    display: flex;
+    justify-content: space-around;
+    padding: 12px 0;
+    background-color: var(--bg-nav);
+    border-top: 1px solid var(--border-color);
+}
+
+.nav-item {
+    background: none;
+    border: none;
+    color: var(--text-secondary);
+    font-size: 1.5rem; /* Icon size */
+    cursor: pointer;
+    padding: 8px;
+    border-radius: 12px;
+    transition: all 0.2s ease;
+}
+
+.nav-item.active {
+    background-color: var(--accent-blue);
+    color: var(--text-primary);
+}
+
+.nav-item:not(.active):hover {
+    color: var(--text-primary);
+}
+
+/* --- Reusable Components (from your designs) --- */
+.card {
+    background-color: var(--bg-medium-blue);
+    border-radius: 16px;
+    padding: 24px;
+    margin-bottom: 16px;
+    border: 1px solid var(--border-color);
+    text-align: center;
+}
+
+.card h2 {
+    margin-bottom: 8px;
+}
+.card p {
+    color: var(--text-secondary);
+    margin-bottom: 20px;
+}
+
+.icon-large {
+    font-size: 3rem;
+    color: var(--accent-blue);
+    margin-bottom: 16px;
+}
+
+.btn-primary {
+    background-color: var(--accent-blue);
+    color: var(--text-primary);
+    border: none;
+    border-radius: 12px;
+    padding: 14px;
+    font-weight: 600;
+    font-size: 1rem;
+    cursor: pointer;
+    width: 100%;
+}
+
+textarea {
+    width: 100%;
+    min-height: 80px;
+    background-color: var(--bg-dark-blue);
+    border: 1px solid var(--border-color);
+    border-radius: 8px;
+    padding: 12px;
+    color: var(--text-primary);
+    font-size: 0.95rem;
+    margin-bottom: 12px;
+}
+
+/* --- Report-Specific Styles --- */
+.report-card {
+    display: flex;
+    gap: 12px;
+    padding: 16px;
+    border-radius: 12px;
+    margin-bottom: 16px;
+}
+.report-card.caution {
+    background-color: var(--caution-bg);
+    border: 1px solid var(--caution-border);
+    color: var(--caution-border);
+}
+.report-card.caution i {
+    font-size: 1.5rem;
+    margin-top: 4px;
+}
+
+.metrics-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 12px;
+}
+
+.metric-item {
+    background-color: var(--bg-medium-blue);
+    border-radius: 12px;
+    padding: 16px;
+    border: 1px solid var(--border-color);
+}
+.metric-item span {
+    display: block;
+    font-size: 0.9rem;
+    color: var(--text-secondary);
+    margin-bottom: 4px;
+}
+.metric-item strong {
+    font-size: 1.5rem;
+}
+
+/* --- Map Page --- */
+.map-placeholder {
+    width: 100%;
+    height: 300px;
+    background-color: var(--bg-medium-blue);
+    border: 1px dashed var(--border-color);
+    border-radius: 12px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    color: var(--text-secondary);
+}
+.legend {
+    margin-top: 20px;
+    font-size: 0.8rem;
+    display: flex;
+    gap: 16px;
+}
+.legend .dot {
+    display: inline-block;
+    width: 10px;
+    height: 10px;
+    border-radius: 50%;
+    margin-right: 4px;
+}
+.dot.blue { background-color: #3b82f6; }
+.dot.green { background-color: #22c55e; }
+.dot.yellow { background-color: #eab308; }
